@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12233f">
+  <title>Admin | Duta GenRe HSU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <main id="login-view" class="login-layout">
+    <section class="login-brand">
+      <a class="brand-mark" href="index.html"><span class="brand-icon">G</span><span>GENRE <b>HSU</b></span></a>
+      <div class="brand-copy">
+        <span class="eyebrow">RUANG PENGELOLA</span>
+        <h1>Ruang untuk<br>menggerakkan<br><em>perubahan.</em></h1>
+        <p>Kelola informasi, agenda, publikasi dan tampilan website Duta GenRe HSU dari satu tempat.</p>
+      </div>
+      <span class="login-footnote">DUTA GENERASI BERENCANA · HULU SUNGAI UTARA</span>
+    </section>
+    <section class="login-panel">
+      <form id="login-form" class="login-card">
+        <span class="eyebrow">ADMINISTRATOR</span>
+        <h2>Selamat datang</h2>
+        <p>Masuk dengan akun pengelola website.</p>
+        <label for="login-username">Username</label>
+        <input id="login-username" name="username" autocomplete="username" required>
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-primary button-wide" type="submit">Masuk ke dashboard <span aria-hidden="true">→</span></button>
+        <p id="login-error" class="form-message" role="status"></p>
+        <a class="back-link" href="index.html">← Kembali ke website</a>
+      </form>
+    </section>
+  </main>
+
+  <div id="admin-app" class="admin-app" hidden>
+    <aside class="sidebar">
+      <a class="brand-mark sidebar-brand" href="index.html"><span class="brand-icon">G</span><span>GENRE <b>HSU</b></span></a>
+      <div class="sidebar-label">PENGELOLAAN</div>
+      <nav class="side-nav" aria-label="Navigasi admin">
+        <button class="side-link active" data-panel="dashboard"><span>▦</span> Ringkasan</button>
+        <button class="side-link" data-panel="content"><span>▤</span> Berita & agenda</button>
+        <button class="side-link" data-panel="appearance"><span>◈</span> Identitas & tampilan</button>
+        <button class="side-link" data-panel="media"><span>▧</span> Media & dokumen</button>
+        <button class="side-link" data-panel="account"><span>⚙</span> Keamanan akun</button>
+      </nav>
+      <div class="sidebar-label page-nav-label">HALAMAN WEBSITE</div>
+      <nav id="page-navigation" class="page-navigation" aria-label="Pilih halaman website untuk diedit"></nav>
+      <div class="sidebar-bottom">
+        <a class="side-link" href="index.html"><span>↗</span> Lihat website</a>
+        <button id="logout-button" class="side-link"><span>⇥</span> Keluar</button>
+        <div class="admin-profile"><span class="avatar">A</span><span><b id="admin-username">Admin</b><small>Administrator</small></span></div>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="topbar">
+        <div><span class="eyebrow">WORKSPACE · DUTA GENRE HSU</span><h1 id="page-title">Ringkasan</h1></div>
+        <div class="topbar-actions"><span class="workspace-badge"><i></i> PANEL ADMIN</span><a class="button button-light" href="index.html" target="_blank" rel="noopener">Buka website <span aria-hidden="true">↗</span></a></div>
+      </header>
+      <div id="app-message" class="toast" role="status" aria-live="polite"></div>
+
+      <section class="panel-section active" id="panel-dashboard">
+        <div class="welcome-card">
+          <div><span class="eyebrow">PUSAT INFORMASI</span><h2>Halo, <span id="welcome-name">Admin</span> 👋</h2><p>Website organisasi Anda, selalu siap menyapa generasi berencana.</p></div>
+          <a class="button button-white" href="index.html" target="_blank" rel="noopener">Pratinjau website <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="stat-grid">
+          <article class="stat-card"><span>Berita diterbitkan</span><b id="stat-news">0</b><small>Publikasi organisasi</small></article>
+          <article class="stat-card"><span>Agenda kegiatan</span><b id="stat-events">0</b><small>Jadwal dan kegiatan</small></article>
+          <article class="stat-card"><span>Media tersimpan</span><b id="stat-media">0</b><small>Gambar dan dokumen</small></article>
+          <article class="stat-card"><span>Dokumen publik</span><b id="stat-resources">0</b><small>Unduhan pengunjung</small></article>
+        </div>
+        <div class="section-heading"><div><span class="eyebrow">AKSES CEPAT</span><h2>Kelola website</h2></div></div>
+        <div class="quick-grid">
+          <button class="quick-card" data-go="content"><span class="quick-icon">✎</span><b>Tulis berita atau agenda</b><small>Bagikan kabar dan kegiatan terbaru</small><span class="quick-arrow">→</span></button>
+          <button class="quick-card" data-go="appearance"><span class="quick-icon">◈</span><b>Perbarui tampilan</b><small>Ubah informasi utama dan identitas</small><span class="quick-arrow">→</span></button>
+          <button class="quick-card" data-go="media"><span class="quick-icon">↑</span><b>Unggah media</b><small>Tambahkan gambar dan dokumen</small><span class="quick-arrow">→</span></button>
+        </div>
+        <div class="section-heading"><div><span class="eyebrow">KONTEN SITUS</span><h2>Kelola halaman</h2><p>Pilih halaman untuk mengatur komponen dan susunannya.</p></div><button class="text-button" data-go="pages">Buka editor halaman →</button></div>
+        <div id="page-shortcuts" class="page-shortcuts"></div>
+        <div class="section-heading"><div><span class="eyebrow">AKTIVITAS</span><h2>Konten terbaru</h2></div><button class="text-button" data-go="content">Kelola konten →</button></div>
+        <div id="recent-content" class="content-list"></div>
+      </section>
+
+      <section class="panel-section" id="panel-content">
+        <div class="section-heading"><div><span class="eyebrow">PUSAT PUBLIKASI</span><h2>Berita & agenda</h2><p>Kelola berita, jadwal kegiatan, dokumen unduhan, dan tanya jawab.</p></div></div>
+        <div class="content-layout">
+          <form id="item-form" class="form-card">
+            <div class="card-heading"><div><span class="eyebrow">EDITOR KONTEN</span><h3 id="item-form-title">Tambah konten</h3></div><button type="button" id="reset-item" class="icon-button" aria-label="Kosongkan formulir">＋</button></div>
+            <input id="item-id" name="item-id" type="hidden">
+            <label for="item-type">Kategori</label>
+            <select id="item-type" name="item-type"><option value="news">Berita</option><option value="event">Agenda</option><option value="gallery">Galeri kegiatan</option><option value="member">Anggota</option><option value="resource">Dokumen / unduhan</option><option value="faq">Tanya jawab (FAQ)</option></select>
+            <label for="item-title">Judul</label><input id="item-title" name="item-title" maxlength="180" required placeholder="Contoh: Sosialisasi GenRe di sekolah">
+            <label for="item-summary">Deskripsi</label><textarea id="item-summary" name="item-summary" rows="4" maxlength="5000" placeholder="Tuliskan informasi yang ingin dibagikan"></textarea>
+            <div class="form-row"><div><label for="item-date">Tanggal</label><input id="item-date" name="item-date" type="date"></div><div><label for="item-url">Tautan / berkas</label><input id="item-url" name="item-url" type="url" placeholder="https://..."></div></div>
+            <label for="item-image">URL gambar (opsional)</label><input id="item-image" name="item-image" type="url" placeholder="Unggah gambar di Media, lalu salin URL">
+            <label class="checkbox-label"><input id="item-published" name="item-published" type="checkbox" checked> Tampilkan di website publik</label>
+            <button class="button button-primary button-wide" type="submit">Simpan konten</button>
+          </form>
+          <div class="list-card"><div class="card-heading"><div><span class="eyebrow">DAFTAR PUBLIKASI</span><h3>Konten website</h3></div><select id="content-filter" aria-label="Filter kategori"><option value="all">Semua kategori</option><option value="news">Berita</option><option value="event">Agenda</option><option value="gallery">Galeri</option><option value="member">Anggota</option><option value="resource">Dokumen</option><option value="faq">FAQ</option></select></div><div id="content-list" class="content-list"></div></div>
+        </div>
+      </section>
+
+      <section class="panel-section" id="panel-appearance">
+        <div class="section-heading"><div><span class="eyebrow">IDENTITAS DIGITAL</span><h2>Tampilan website</h2><p>Perubahan tersimpan akan terlihat di halaman publik setelah dimuat ulang.</p></div></div>
+        <form id="settings-form" class="settings-grid">
+          <article class="form-card"><div class="card-heading"><div><span class="eyebrow">IDENTITAS</span><h3>Nama & warna</h3></div></div>
+            <label for="setting-siteName">Nama organisasi</label><input id="setting-siteName" name="siteName" required>
+            <label for="setting-tagline">Slogan</label><input id="setting-tagline" name="tagline">
+            <label for="setting-primaryColor">Warna utama</label><div class="color-field"><input id="setting-primaryColor" name="primaryColor" type="color"><span>Warna tombol dan aksen utama</span></div>
+            <label for="setting-footerText">Teks footer</label><input id="setting-footerText" name="footerText">
+          </article>
+          <article class="form-card"><div class="card-heading"><div><span class="eyebrow">BERANDA</span><h3>Judul & pengumuman</h3></div></div>
+            <label for="setting-heroTitle">Judul utama</label><input id="setting-heroTitle" name="heroTitle">
+            <label for="setting-heroSubtitle">Deskripsi utama</label><textarea id="setting-heroSubtitle" name="heroSubtitle" rows="2"></textarea>
+            <label for="setting-announcement">Pengumuman / informasi penting</label><textarea id="setting-announcement" name="announcement" rows="3" placeholder="Kosongkan untuk menyembunyikan pengumuman"></textarea>
+          </article>
+          <article class="form-card"><div class="card-heading"><div><span class="eyebrow">TENTANG ORGANISASI</span><h3>Profil organisasi</h3></div></div>
+            <label for="setting-aboutTitle">Judul profil</label><input id="setting-aboutTitle" name="aboutTitle">
+            <label for="setting-aboutText">Deskripsi organisasi</label><textarea id="setting-aboutText" name="aboutText" rows="6"></textarea>
+          </article>
+          <article class="form-card"><div class="card-heading"><div><span class="eyebrow">GAMBAR & TAUTAN</span><h3>Kontak dan pendaftaran</h3></div></div>
+            <label for="setting-logoUrl">URL logo</label><input id="setting-logoUrl" name="logoUrl" placeholder="./img/logogic.png">
+            <label for="setting-heroImage">URL gambar latar beranda</label><input id="setting-heroImage" name="heroImage" placeholder="./img/background.png">
+            <label for="setting-aboutImage">URL gambar profil</label><input id="setting-aboutImage" name="aboutImage" placeholder="./img/tentang.jpg">
+            <label for="setting-registrationUrl">URL formulir pendaftaran</label><input id="setting-registrationUrl" name="registrationUrl" type="url">
+            <label for="setting-whatsappUrl">URL WhatsApp narahubung</label><input id="setting-whatsappUrl" name="whatsappUrl" type="url" placeholder="https://wa.me/628...">
+            <label for="setting-instagramUrl">URL Instagram</label><input id="setting-instagramUrl" name="instagramUrl" type="url">
+          </article>
+          <div class="settings-submit"><span>Tips: gunakan gambar yang sudah diunggah ke Media & dokumen.</span><button class="button button-primary" type="submit">Simpan perubahan</button></div>
+        </form>
+      </section>
+
+      <section class="panel-section" id="panel-media">
+        <div class="section-heading"><div><span class="eyebrow">PUSTAKA FILE</span><h2>Media & dokumen</h2><p>Gambar dan berkas disimpan di Cloudinary. Gunakan gambar yang sudah diunggah pada komponen halaman.</p></div></div>
+        <form id="upload-form" class="upload-card">
+          <label class="upload-drop" for="upload-file"><span class="upload-icon">↑</span><b>Pilih gambar atau dokumen</b><span>Gambar JPG, PNG, GIF, WEBP atau dokumen PDF, Word, Excel, PowerPoint · Maksimal 3 MB</span><input id="upload-file" name="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" required></label>
+          <button class="button button-primary" type="submit">Unggah file</button>
+          <p id="upload-status" class="form-message" role="status"></p>
+        </form>
+        <p class="upload-warning">File yang diunggah dapat diakses publik melalui tautannya. Jangan unggah data pribadi atau dokumen rahasia.</p>
+        <div class="section-heading media-heading"><div><span class="eyebrow">FILE TERSIMPAN</span><h2>Pustaka media</h2></div></div>
+        <div id="media-grid" class="media-grid"></div>
+      </section>
+
+      <section class="panel-section" id="panel-pages">
+        <div class="section-heading"><div><span class="eyebrow">PAGE BUILDER</span><h2>Editor halaman</h2><p>Atur susunan komponen setiap halaman. Aktifkan layout khusus untuk mengganti seluruh tampilan isi halaman.</p></div></div>
+        <div class="page-editor-toolbar">
+          <label for="page-select">Pilih halaman</label>
+          <select id="page-select">
+            <option value="index.html">Beranda</option><option value="tentang.html">Tentang</option>
+            <option value="kegiatan.html">Kegiatan & galeri</option><option value="anggota.html">Anggota</option>
+            <option value="sosialmedia.html">Sosial media</option><option value="pendaftaran.html">Pendaftaran</option>
+            <option value="berita.html">Berita</option><option value="agenda.html">Agenda</option>
+            <option value="unduhan.html">Unduhan</option><option value="faq.html">FAQ</option>
+          </select>
+          <label for="page-title-input">Judul halaman</label><input id="page-title-input" maxlength="120">
+          <label class="custom-layout-toggle"><input id="custom-layout-enabled" type="checkbox"> Gunakan layout khusus dan ganti isi halaman saat ini</label>
+          <button id="preview-page" type="button" class="button button-light">Pratinjau halaman ↗</button>
+        </div>
+        <div class="page-builder-layout">
+          <div class="page-sections-card"><div class="card-heading"><div><span class="eyebrow">SUSUNAN KOMPONEN</span><h3>Komponen halaman</h3></div><button id="add-page-section" class="button button-light" type="button">＋ Tambah komponen</button></div><p class="page-section-tip">Galeri dan kartu: satu item per baris dengan format <code>Judul | Deskripsi | tautan | URL gambar</code>. Kolom yang tidak diperlukan boleh dikosongkan.</p><div id="page-sections-list"></div></div>
+          <aside class="page-builder-help"><span class="eyebrow">BLOK KONTEN</span><h3>Bangun halaman sendiri</h3><p>Tambahkan banner, teks, gambar, galeri, kartu tautan, atau ajakan bertindak.</p><p>Susun ulang dengan tombol panah. Sembunyikan komponen yang belum siap, atau aktifkan layout khusus untuk menggantikan isi lama.</p><p>Gambar dapat dipilih dari pustaka Cloudinary.</p></aside>
+        </div>
+        <div class="settings-submit page-builder-submit"><span>Perubahan tidak ditayangkan sampai Anda menekan Simpan halaman.</span><button id="save-page" class="button button-primary" type="button">Simpan halaman</button></div>
+        <div class="section-heading nav-editor-heading"><div><span class="eyebrow">MENU UTAMA</span><h2>Navigasi titik tiga</h2><p>Atur nama, urutan, dan visibilitas tautan di menu semua halaman.</p></div><button id="add-nav-link" class="button button-light" type="button">＋ Tautan menu</button></div>
+        <div id="navigation-editor" class="navigation-editor"></div>
+        <div class="settings-submit"><span>Urutan menu yang disimpan berlaku di seluruh website.</span><button id="save-navigation" class="button button-primary" type="button">Simpan navigasi</button></div>
+      </section>
+
+      <section class="panel-section" id="panel-account">
+        <div class="section-heading"><div><span class="eyebrow">KEAMANAN</span><h2>Keamanan akun</h2><p>Ubah password administrator secara berkala.</p></div></div>
+        <form id="password-form" class="form-card password-card">
+          <div class="card-heading"><div><span class="eyebrow">GANTI PASSWORD</span><h3>Perbarui kredensial</h3></div></div>
+          <label for="current-password">Password saat ini</label><input id="current-password" name="current-password" type="password" autocomplete="current-password" required>
+          <label for="new-password">Password baru</label><input id="new-password" name="new-password" type="password" minlength="12" autocomplete="new-password" required><small>Gunakan minimal 12 karakter.</small>
+          <label for="confirm-password">Konfirmasi password baru</label><input id="confirm-password" name="confirm-password" type="password" minlength="12" autocomplete="new-password" required>
+          <button class="button button-primary" type="submit">Ubah password</button>
+        </form>
+      </section>
+      <footer class="admin-footer">Duta GenRe HSU <span>·</span> Panel pengelola</footer>
+    </main>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+</html>
